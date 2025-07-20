@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精通動脈血液採樣術 - OSCE教學</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-node:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Horizontal line for desktop timeline */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 3.5rem; /* Adjust to vertically center with the icons */
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background-color: #e5e7eb; /* gray-200 */
+            z-index: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .timeline-container::before {
+                display: none; /* Hide horizontal line on mobile/tablet */
+            }
+            .timeline-horizontal {
+                flex-direction: column;
+                align-items: center;
+            }
+             .timeline-horizontal > div {
+                width: 80%;
+                margin-bottom: 2rem;
+             }
+             .timeline-horizontal > div:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-[#008CBA] to-[#00BFA6] flex items-center justify-center relative overflow-hidden p-4">
+        <div class="container mx-auto px-6 text-center text-white relative z-10">
+            <div class="scroll-reveal mb-8">
+                <!-- ABG Sampling Illustration -->
+                <svg class="w-64 h-64 md:w-80 md:h-80 mx-auto mb-8" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 120C40 100 60 80 80 80H160" stroke="#FFDAB9" stroke-width="10" stroke-linecap="round"/>
+                    <path d="M70 120H90" stroke="#FF6347" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M70 115H90" stroke="#4682B4" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M110 50L80 120" stroke="#E0E0E0" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M110 50L115 45" stroke="#E53E3E" stroke-width="5" stroke-linecap="round"/>
+                    <circle cx="80" cy="120" r="5" fill="#FF4500"/>
+                </svg>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 scroll-reveal">精通動脈血液採樣術 (ABG)</h1>
+            <p class="text-xl md:text-2xl mb-8 scroll-reveal">一針見血的診斷藝術，急重症照護的基石</p>
+            <p class="text-lg opacity-90 scroll-reveal">台灣實習醫學生OSCE國考必備指南</p>
+        </div>
+        
+        <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full animate-pulse delay-500"></div>
+    </section>
+
+    <!-- Four Core Competencies Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">四大核心能力</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Knowledge Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">知識</h3>
+                    <p class="text-sm text-blue-600 font-medium mb-4">判讀數據，理解病理</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **適應症**: 評估氣體交換(PaO2, PaCO2)與酸鹼平衡(pH, HCO3-)。</li>
+                        <li>• **禁忌症**: Allen氏試驗陰性、穿刺部位感染、動靜脈瘻管。</li>
+                        <li>• **解剖學**: 橈動脈、肱動脈、股動脈的位置與側枝循環。</li>
+                        <li>• **生理學**: 理解ABG各項數據的正常值與臨床意義。</li>
+                    </ul>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">技能</h3>
+                    <p class="text-sm text-green-600 font-medium mb-4">穩、準、快</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **Allen氏試驗**: 正確執行與判讀側枝循環。</li>
+                        <li>• **觸診定位**: 以食指、中指指腹準確找到最強脈搏點。</li>
+                        <li>• **穿刺技術**: 橈動脈採血角度約30-45度，見動脈血回血後停止前進。</li>
+                        <li>• **檢體處理**: 排除氣泡，立即加蓋送檢，避免檢體凝固或變質。</li>
+                    </ul>
+                </div>
+                <!-- Attitude Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">態度</h3>
+                    <p class="text-sm text-purple-600 font-medium mb-4">專業溝通，安撫情緒</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **同理心**: 認知此為疼痛感強烈的檢查，應主動安撫。</li>
+                        <li>• **清晰溝通**: 檢查前詳細解釋流程與可能的不適。</li>
+                        <li>• **專業自信**: 操作時沉著冷靜，給予病人信賴感。</li>
+                        <li>• **誠實**: 若多次嘗試未果，應勇於尋求協助，而非讓病人承受不必要的痛苦。</li>
+                    </ul>
+                </div>
+                <!-- Safety Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">安全</h3>
+                    <p class="text-sm text-red-600 font-medium mb-4">預防併發症</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **部位選擇**: 橈動脈為首選，因其側枝循環良好且不易形成嚴重血腫。</li>
+                        <li>• **感染控制**: 嚴格無菌操作。</li>
+                        <li>• **預防血腫**: 採血後確實加壓至少5分鐘。</li>
+                        <li>• **針頭安全**: 採血後立即將針頭棄置於尖銳物收集盒。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8-Minute Workflow Timeline -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-20 text-gray-800 scroll-reveal">8分鐘完美流程</h2>
+            <div class="relative timeline-container">
+                <div class="timeline-horizontal flex justify-between items-start max-w-6xl mx-auto">
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-blue-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">0-2m</div>
+                        <p class="text-sm font-medium">準備/溝通/Allen Test</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-cyan-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">2-3m</div>
+                        <p class="text-sm font-medium">定位與消毒</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">3-4m</div>
+                        <p class="text-sm font-medium">穿刺採血</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-yellow-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">4-6m</div>
+                        <p class="text-sm font-medium">拔針與加壓</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-orange-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">6-8m</div>
+                        <p class="text-sm font-medium">檢體處理與紀錄</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- OSCE Station Common Items -->
+    <section class="pt-10 pb-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">OSCE 考站常見備物</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg text-blue-600 mb-3 border-b-2 border-blue-200 pb-2">採血用物</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>動脈血採集針 (ABG syringe)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>2% Lidocaine & 1ml 空針 (備用)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>針頭安全蓋或軟木塞</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-green-600 mb-3 border-b-2 border-green-200 pb-2">消毒與照護</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>酒精棉片、優碘棉片</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>無菌紗布、膠帶</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>檢查手套、尖銳物收集盒</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OSCE Clinical Skill Operation Process -->
+    <section class="pt-10 pb-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">OSCE臨床技能操作流程</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+                <ol class="space-y-6">
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div><div><h4 class="font-bold text-lg text-gray-800">準備與評估</h4><p class="text-gray-600">洗手，確認醫囑與病人身份。向病人解釋流程與疼痛感，取得同意。**執行Allen氏試驗**，確認尺動脈循環良好。</p></div></li>
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div><div><h4 class="font-bold text-lg text-gray-800">定位與消毒</h4><p class="text-gray-600">請病人手腕背曲約30度，下方可墊治療巾捲。戴上手套，以食指與中指指腹找到橈動脈最強搏動點。以酒精棉片由內向外環狀消毒。</p></div></li>
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div><div><h4 class="font-bold text-lg text-gray-800">穿刺採血</h4><p class="text-gray-600">再次確認脈搏位置，以非慣用手固定。慣用手持ABG針，針頭斜面朝上，以30-45度角朝心臟方向，對準脈搏點下針。見鮮紅色動脈血回流後，停止前進，讓針筒自動回血至所需量(約1-2ml)。</p></div></li>
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">4</div><div><h4 class="font-bold text-lg text-gray-800">完成與檢體處理</h4><p class="text-gray-600">採血完成後，迅速拔針，並立即以無菌紗布**加壓穿刺點至少5分鐘**。將針頭棄置於尖銳物收集盒，排除針筒內氣泡，蓋上安全蓋，輕輕滾動針筒混合肝素，立即送檢。完成後再次確認穿刺點無出血或血腫。</p></div></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Mistakes Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">常見扣分懶人包</h2>
+            <div class="flex overflow-x-auto space-x-6 pb-6 -mx-6 px-6">
+                <div class="min-w-[320px] bg-gradient-to-br from-red-400 to-red-600 rounded-2xl p-8 text-white hover-scale shadow-xl">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-4">未做Allen's Test</h3><p class="mb-4 text-sm opacity-90">直接進行穿刺</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4"><p class="text-sm font-medium">避免策略：</p><p class="text-xs mt-2">此為絕對必要的安全步驟。若Allen's Test為陰性(手掌超過10-15秒仍蒼白)，表示尺動脈側枝循環不良，應更換至另一手或選擇其他部位。</p></div>
+                </div>
+                <div class="min-w-[320px] bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-8 text-white hover-scale shadow-xl">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-4">加壓不足</h3><p class="mb-4 text-sm opacity-90">拔針後僅輕壓1-2分鐘</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4"><p class="text-sm font-medium">避免策略：</p><p class="text-xs mt-2">動脈壓力遠高於靜脈，必須確實、直接地加壓穿刺點**至少5分鐘** (若病人有使用抗凝血劑則需更久)，以預防血腫形成。</p></div>
+                </div>
+                <div class="min-w-[320px] bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl p-8 text-white hover-scale shadow-xl">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-4">檢體含氣泡</h3><p class="mb-4 text-sm opacity-90">未排除氣泡即送檢</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4"><p class="text-sm font-medium">避免策略：</p><p class="text-xs mt-2">檢體中的氣泡會導致PaO2偽性升高、PaCO2偽性降低。拔針後應立即將針筒朝上，輕彈針筒使氣泡上浮並排出。</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 30-Second Quiz Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">30秒快速測驗</h2>
+            <div id="quiz-container" class="space-y-8">
+                <!-- Question 1 -->
+                <div class="quiz-question bg-gray-50 rounded-2xl p-8 shadow-md">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">1. 執行橈動脈穿刺前，Allen氏試驗(Allen's Test)的主要目的是評估？</h3>
+                    <div class="space-y-3">
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">A. 橈動脈的搏動強度</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="correct">B. 尺動脈的側枝循環是否通暢</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">C. 病人對疼痛的耐受度</button>
+                    </div><div class="quiz-feedback mt-4 hidden"></div>
+                </div>
+                <!-- Question 2 -->
+                <div class="quiz-question bg-gray-50 rounded-2xl p-8 shadow-md">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">2. 從橈動脈採血後，標準的加壓止血時間至少為？</h3>
+                    <div class="space-y-3">
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">A. 1-2 分鐘</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">B. 3 分鐘</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="correct">C. 5 分鐘</button>
+                    </div><div class="quiz-feedback mt-4 hidden"></div>
+                </div>
+                <!-- Question 3 -->
+                <div class="quiz-question bg-gray-50 rounded-2xl p-8 shadow-md">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">3. 動脈血檢體中的氣泡會對判讀造成什麼影響？</h3>
+                    <div class="space-y-3">
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="correct">A. PaO2 偽性升高，PaCO2 偽性降低</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">B. PaO2 偽性降低，PaCO2 偽性升高</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">C. 對 PaO2 和 PaCO2 沒有影響，只影響 pH 值</button>
+                    </div><div class="quiz-feedback mt-4 hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="py-20 bg-gradient-to-br from-[#008CBA] to-[#00BFA6]">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white scroll-reveal">實用資源下載</h2>
+            <p class="text-xl text-white opacity-90 mb-12 scroll-reveal">帶走這些寶貝，OSCE不再害怕</p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <button class="bg-[#00557C] hover:bg-[#003d5c] text-white px-8 py-4 rounded-2xl font-bold text-lg hover-scale transition-all duration-300 shadow-lg">📋 Step Checklist (PDF)</button>
+                <button class="bg-[#00557C] hover:bg-[#003d5c] text-white px-8 py-4 rounded-2xl font-bold text-lg hover-scale transition-all duration-300 shadow-lg">📊 技術評量表 (DOPS, DOCX)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-8">
+                <div class="w-48 h-16 mx-auto bg-white rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-gray-800 font-bold">奇美醫院教學中心</span>
+                </div>
+            </div>
+            <p class="text-lg mb-4 text-blue-300 font-medium">「溫柔的手、清晰的腦、關懷的心」</p>
+            <div class="space-y-2 text-gray-300">
+                <p>聯絡信箱：teaching.center@chimei.org.tw</p>
+                <p>&copy; 2025 奇美醫院教學中心</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('revealed');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Quiz Functionality
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const question = this.closest('.quiz-question');
+                const options = question.querySelectorAll('.quiz-option');
+                const feedback = question.querySelector('.quiz-feedback');
+                options.forEach(opt => {
+                    opt.disabled = true;
+                    opt.classList.remove('hover:border-blue-400');
+                });
+                if (this.dataset.answer === 'correct') {
+                    this.classList.remove('border-gray-200');
+                    this.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                    feedback.innerHTML = '<p class="text-green-600 font-medium">🎉 答對了！這是確保病人安全的關鍵！</p>';
+                } else {
+                    this.classList.remove('border-gray-200');
+                    this.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
+                    const correctOption = question.querySelector('[data-answer="correct"]');
+                    correctOption.classList.remove('border-gray-200');
+                    correctOption.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                    feedback.innerHTML = '<p class="text-red-600 font-medium">😅 答錯了！正確的觀念才能確保檢體品質與病人安全喔！</p>';
+                }
+                feedback.classList.remove('hidden');
+            });
+        });
+
+        // Download buttons functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('PDF') || button.textContent.includes('DOCX')) {
+                button.addEventListener('click', function() {
+                    alert('檔案下載功能為示範版本。實際使用時會連結到真實的下載連結。');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
