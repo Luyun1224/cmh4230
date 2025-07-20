@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精通喉拭子採檢術 - OSCE教學</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-node:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Horizontal line for desktop timeline */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 3.5rem; /* Adjust to vertically center with the icons */
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background-color: #e5e7eb; /* gray-200 */
+            z-index: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .timeline-container::before {
+                display: none; /* Hide horizontal line on mobile/tablet */
+            }
+            .timeline-horizontal {
+                flex-direction: column;
+                align-items: center;
+            }
+             .timeline-horizontal > div {
+                width: 80%;
+                margin-bottom: 2rem;
+             }
+             .timeline-horizontal > div:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-[#008CBA] to-[#00BFA6] flex items-center justify-center relative overflow-hidden p-4">
+        <div class="container mx-auto px-6 text-center text-white relative z-10">
+            <div class="scroll-reveal mb-8">
+                <!-- Throat Swab Illustration -->
+                <svg class="w-64 h-64 md:w-80 md:h-80 mx-auto mb-8" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 180C144.183 180 180 144.183 180 100C180 55.8172 144.183 20 100 20C55.8172 20 20 55.8172 20 100C20 144.183 55.8172 180 100 180Z" fill="#FFDAB9" fill-opacity="0.5"/>
+                    <path d="M60 140C60 110 80 100 100 100C120 100 140 110 140 140H60Z" fill="#F08080"/>
+                    <path d="M100 100L90 70H110L100 100Z" fill="#FFA07A"/>
+                    <path d="M70 70C70 50 80 40 100 40C120 40 130 50 130 70" stroke="#CD5C5C" stroke-width="4" stroke-linecap="round"/>
+                    <rect x="98" y="20" width="4" height="80" fill="#E0E0E0"/>
+                    <rect x="95" y="20" width="10" height="10" rx="5" fill="#B0E0E6"/>
+                </svg>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 scroll-reveal">精通喉嚨拭子採檢術</h1>
+            <p class="text-xl md:text-2xl mb-8 scroll-reveal">傳染病診斷的第一步，精準採樣的藝術</p>
+            <p class="text-lg opacity-90 scroll-reveal">台灣實習醫學生OSCE國考必備指南</p>
+        </div>
+        
+        <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full animate-pulse delay-500"></div>
+    </section>
+
+    <!-- Four Core Competencies Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">四大核心能力</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Knowledge Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">知識</h3>
+                    <p class="text-sm text-blue-600 font-medium mb-4">知己知彼，百戰不殆</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **適應症**: 懷疑A型鏈球菌咽炎、流感、COVID-19等呼吸道感染。</li>
+                        <li>• **禁忌症**: 懷疑急性會厭炎(Epiglottitis)為絕對禁忌，可能誘發呼吸道阻塞。</li>
+                        <li>• **解剖學**: 辨識目標採樣區：雙側扁桃腺及後咽壁。</li>
+                        <li>• **微生物學**: 了解檢體品質直接影響偽陰性結果。</li>
+                    </ul>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">技能</h3>
+                    <p class="text-sm text-green-600 font-medium mb-4">快、狠、準</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **病人準備**: 請病人頭後仰、張大嘴發出「啊」聲，以上抬軟顎。</li>
+                        <li>• **壓舌板使用**: 輕柔但確實地壓住舌頭前2/3，避免觸發嘔吐反射。</li>
+                        <li>• **採樣技巧**: 快速、準確地擦拭雙側扁桃腺與後咽壁，避免碰觸舌頭、臉頰、牙齒。</li>
+                        <li>• **檢體處理**: 採樣後立即將拭子放入輸送培養基，折斷拭桿，旋緊蓋子。</li>
+                    </ul>
+                </div>
+                <!-- Attitude Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">態度</h3>
+                    <p class="text-sm text-purple-600 font-medium mb-4">溝通是最好的麻醉劑</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **同理心**: 理解病人對嘔吐反射的恐懼與不適。</li>
+                        <li>• **清晰指令**: 檢查前清楚解釋步驟，引導病人配合。</li>
+                        <li>• **專業自信**: 果斷、迅速的操作能縮短病人的不適時間。</li>
+                        <li>• **保護隱私**: 雖然是口腔檢查，仍應注意環境的私密性。</li>
+                    </ul>
+                </div>
+                <!-- Safety Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">安全</h3>
+                    <p class="text-sm text-red-600 font-medium mb-4">保護自己，也保護病人</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **個人防護**: 務必穿戴手套、口罩、護目鏡/面罩，預防飛沫傳染。</li>
+                        <li>• **感染控制**: 正確處理使用過的壓舌板與採檢棒，避免交叉感染。</li>
+                        <li>• **避免創傷**: 避免使用過度暴力造成黏膜損傷。</li>
+                        <li>• **辨識警訊**: 警惕急性會厭炎的症狀(流口水、吞嚥困難、聲音沙啞)。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8-Minute Workflow Timeline -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-20 text-gray-800 scroll-reveal">8分鐘完美流程</h2>
+            <div class="relative timeline-container">
+                <div class="timeline-horizontal flex justify-between items-start max-w-6xl mx-auto">
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-blue-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">0-2m</div>
+                        <p class="text-sm font-medium">準備與溝通</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-cyan-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">2-3m</div>
+                        <p class="text-sm font-medium">擺位與指導</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">3-4m</div>
+                        <p class="text-sm font-medium">採檢</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-yellow-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">4-5m</div>
+                        <p class="text-sm font-medium">檢體處理</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-orange-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">5-8m</div>
+                        <p class="text-sm font-medium">完成/衛教/紀錄</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- OSCE Station Common Items -->
+    <section class="pt-10 pb-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">OSCE 考站常見備物</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg text-blue-600 mb-3 border-b-2 border-blue-200 pb-2">採檢用物</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>無菌喉嚨拭子 (Swab)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>壓舌板 (Tongue depressor)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>輸送培養基 (Transport medium)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>檢體袋/生物危害標示袋</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-green-600 mb-3 border-b-2 border-green-200 pb-2">個人防護與其他</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>檢查手套、口罩</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>護目鏡或面罩</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>乾洗手液、垃圾桶</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>光源 (筆燈或頭燈)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OSCE Clinical Skill Operation Process -->
+    <section class="pt-10 pb-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">OSCE臨床技能操作流程</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+                <ol class="space-y-6">
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div><div><h4 class="font-bold text-lg text-gray-800">準備與溝通</h4><p class="text-gray-600">洗手，穿戴個人防護裝備(手套、口罩、護目鏡)。確認病人身份。向病人解釋流程與可能的不適(噁心感)，取得同意。</p></div></li>
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div><div><h4 class="font-bold text-lg text-gray-800">擺位與指導</h4><p class="text-gray-600">請病人坐正，頭稍微後仰。指導病人盡量張大嘴巴，並發出「啊—」的長音，以利觀察咽喉部。</p></div></li>
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div><div><h4 class="font-bold text-lg text-gray-800">採檢</h4><p class="text-gray-600">以非慣用手持壓舌板輕壓舌頭前2/3。慣用手持拭子，快速越過舌根，準確地在**雙側的扁桃腺隱窩及後咽壁**來回擦拭數次。注意避免碰觸口腔其他部位。</p></div></li>
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">4</div><div><h4 class="font-bold text-lg text-gray-800">完成與檢體處理</h4><p class="text-gray-600">小心地將拭子取出，不碰觸其他部位。立即將拭子放入輸送培養基中，折斷拭桿，旋緊蓋子。將檢體貼上標籤並放入檢體袋。妥善處理廢棄物，脫除防護裝備，洗手，完成紀錄。</p></div></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Mistakes Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">常見扣分懶人包</h2>
+            <div class="flex overflow-x-auto space-x-6 pb-6 -mx-6 px-6">
+                <div class="min-w-[320px] bg-gradient-to-br from-red-400 to-red-600 rounded-2xl p-8 text-white hover-scale shadow-xl">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-4">檢體污染</h3><p class="mb-4 text-sm opacity-90">拭子碰到舌頭、牙齒或臉頰</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4"><p class="text-sm font-medium">避免策略：</p><p class="text-xs mt-2">使用壓舌板充分暴露目標區，視野清晰是關鍵。進出路徑要精準，避免拭子頭在口腔內「流連忘返」。</p></div>
+                </div>
+                <div class="min-w-[320px] bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-8 text-white hover-scale shadow-xl">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-4">採樣不足</h3><p class="mb-4 text-sm opacity-90">只在咽喉部輕輕碰一下</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4"><p class="text-sm font-medium">避免策略：</p><p class="text-xs mt-2">必須確實地在雙側扁桃腺及後咽壁來回擦拭，力道要足夠取得分泌物與細胞，才能避免偽陰性。</p></div>
+                </div>
+                <div class="min-w-[320px] bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl p-8 text-white hover-scale shadow-xl">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-4">個人防護不足</h3><p class="mb-4 text-sm opacity-90">未戴護目鏡或面罩</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4"><p class="text-sm font-medium">避免策略：</p><p class="text-xs mt-2">採檢極易引發病人咳嗽或作嘔，產生大量飛沫。保護自己的眼睛是絕對必要的標準防護措施。</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 30-Second Quiz Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">30秒快速測驗</h2>
+            <div id="quiz-container" class="space-y-8">
+                <!-- Question 1 -->
+                <div class="quiz-question bg-gray-50 rounded-2xl p-8 shadow-md">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">1. 喉嚨拭子採檢的主要目標區域「不包含」下列何者？</h3>
+                    <div class="space-y-3">
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">A. 扁桃腺 (Tonsil)</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">B. 後咽壁 (Posterior pharyngeal wall)</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="correct">C. 懸壅垂 (Uvula)</button>
+                    </div><div class="quiz-feedback mt-4 hidden"></div>
+                </div>
+                <!-- Question 2 -->
+                <div class="quiz-question bg-gray-50 rounded-2xl p-8 shadow-md">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">2. 若臨床上高度懷疑病人為急性會厭炎(Epiglottitis)，此時執行喉嚨拭子採檢是？</h3>
+                    <div class="space-y-3">
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="correct">A. 絕對禁忌，可能引發致命的呼吸道阻塞</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">B. 相對禁忌，可由資深醫師謹慎操作</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">C. 標準適應症，有助於鑑別診斷</button>
+                    </div><div class="quiz-feedback mt-4 hidden"></div>
+                </div>
+                <!-- Question 3 -->
+                <div class="quiz-question bg-gray-50 rounded-2xl p-8 shadow-md">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">3. 為了讓視野更清晰並減少嘔吐反射，使用壓舌板時應壓在舌頭的哪個位置？</h3>
+                    <div class="space-y-3">
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">A. 舌尖</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="correct">B. 前三分之二處</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">C. 舌根</button>
+                    </div><div class="quiz-feedback mt-4 hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="py-20 bg-gradient-to-br from-[#008CBA] to-[#00BFA6]">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white scroll-reveal">實用資源下載</h2>
+            <p class="text-xl text-white opacity-90 mb-12 scroll-reveal">帶走這些寶貝，OSCE不再害怕</p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <button class="bg-[#00557C] hover:bg-[#003d5c] text-white px-8 py-4 rounded-2xl font-bold text-lg hover-scale transition-all duration-300 shadow-lg">📋 Step Checklist (PDF)</button>
+                <button class="bg-[#00557C] hover:bg-[#003d5c] text-white px-8 py-4 rounded-2xl font-bold text-lg hover-scale transition-all duration-300 shadow-lg">📊 技術評量表 (DOPS, DOCX)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-8">
+                <div class="w-48 h-16 mx-auto bg-white rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-gray-800 font-bold">奇美醫院教學中心</span>
+                </div>
+            </div>
+            <p class="text-lg mb-4 text-blue-300 font-medium">「溫柔的手、清晰的腦、關懷的心」</p>
+            <div class="space-y-2 text-gray-300">
+                <p>聯絡信箱：teaching.center@chimei.org.tw</p>
+                <p>&copy; 2025 奇美醫院教學中心</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('revealed');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Quiz Functionality
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const question = this.closest('.quiz-question');
+                const options = question.querySelectorAll('.quiz-option');
+                const feedback = question.querySelector('.quiz-feedback');
+                options.forEach(opt => {
+                    opt.disabled = true;
+                    opt.classList.remove('hover:border-blue-400');
+                });
+                if (this.dataset.answer === 'correct') {
+                    this.classList.remove('border-gray-200');
+                    this.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                    feedback.innerHTML = '<p class="text-green-600 font-medium">🎉 答對了！這是確保病人安全與採檢品質的關鍵！</p>';
+                } else {
+                    this.classList.remove('border-gray-200');
+                    this.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
+                    const correctOption = question.querySelector('[data-answer="correct"]');
+                    correctOption.classList.remove('border-gray-200');
+                    correctOption.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                    feedback.innerHTML = '<p class="text-red-600 font-medium">😅 答錯了！正確的觀念才能確保檢體品質與病人安全喔！</p>';
+                }
+                feedback.classList.remove('hidden');
+            });
+        });
+
+        // Download buttons functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('PDF') || button.textContent.includes('DOCX')) {
+                button.addEventListener('click', function() {
+                    alert('檔案下載功能為示範版本。實際使用時會連結到真實的下載連結。');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
