@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精通傷口評估與換藥術 - OSCE教學</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-node:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Horizontal line for desktop timeline */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 3.5rem; /* Adjust to vertically center with the icons */
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background-color: #e5e7eb; /* gray-200 */
+            z-index: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .timeline-container::before {
+                display: none; /* Hide horizontal line on mobile/tablet */
+            }
+            .timeline-horizontal {
+                flex-direction: column;
+                align-items: center;
+            }
+             .timeline-horizontal > div {
+                width: 80%;
+                margin-bottom: 2rem;
+             }
+             .timeline-horizontal > div:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-[#008CBA] to-[#00BFA6] flex items-center justify-center relative overflow-hidden p-4">
+        <div class="container mx-auto px-6 text-center text-white relative z-10">
+            <div class="scroll-reveal mb-8">
+                <!-- Wound Care Illustration -->
+                <svg class="w-64 h-64 md:w-80 md:h-80 mx-auto mb-8" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="70" fill="#FFDAB9"/>
+                    <path d="M70 100C80 90, 120 90, 130 100" stroke="#E53E3E" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M140 70L120 90" stroke="#B0C4DE" stroke-width="6" stroke-linecap="round"/>
+                    <rect x="115" y="85" width="10" height="10" fill="#FFFFFF" stroke="#708090" stroke-width="1"/>
+                    <path d="M150 60L140 70" stroke="#B0C4DE" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M160 50L150 60" stroke="#B0C4DE" stroke-width="6" stroke-linecap="round"/>
+                </svg>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 scroll-reveal">精通傷口評估與換藥術</h1>
+            <p class="text-xl md:text-2xl mb-8 scroll-reveal">看見傷口，更看見背後的病人</p>
+            <p class="text-lg opacity-90 scroll-reveal">台灣實習醫學生OSCE國考必備指南</p>
+        </div>
+        
+        <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full animate-pulse delay-500"></div>
+    </section>
+
+    <!-- Four Core Competencies Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">四大核心能力</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Knowledge Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">知識</h3>
+                    <p class="text-sm text-blue-600 font-medium mb-4">評估精準，選擇適當</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **傷口評估**: 熟悉REEDA/NERDS原則評估感染。</li>
+                        <li>• **癒合階段**: 辨識發炎期、增生期、重塑期。</li>
+                        <li>• **敷料選擇**: 了解紗布、人工皮、泡棉等敷料的適用時機。</li>
+                        <li>• **清潔液**: 知道生理食鹽水與優碘的使用區別。</li>
+                    </ul>
+                </div>
+                <!-- Skill Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">技能</h3>
+                    <p class="text-sm text-green-600 font-medium mb-4">無菌、輕柔、有效</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **無菌技術**: 熟練打開無菌包、穿戴無菌手套。</li>
+                        <li>• **清潔傷口**: 掌握由內而外、環狀消毒的原則。</li>
+                        <li>• **敷料覆蓋**: 敷料需完全覆蓋傷口並超出邊緣。</li>
+                        <li>• **紀錄**: 準確記錄傷口狀況、換藥過程與衛教內容。</li>
+                    </ul>
+                </div>
+                <!-- Attitude Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">態度</h3>
+                    <p class="text-sm text-purple-600 font-medium mb-4">視病猶親，關懷備至</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **同理心**: 理解病人對疼痛、外觀的擔憂。</li>
+                        <li>• **溝通衛教**: 用病人能懂的語言解釋傷口狀況與照護方式。</li>
+                        <li>• **保護隱私**: 換藥時注意遮蔽，維護病人尊嚴。</li>
+                        <li>• **專業自信**: 操作時展現自信，給予病人安全感。</li>
+                    </ul>
+                </div>
+                <!-- Safety Card -->
+                <div class="bg-white p-6 rounded-2xl text-center hover-scale scroll-reveal shadow-lg flex flex-col">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0"><svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">安全</h3>
+                    <p class="text-sm text-red-600 font-medium mb-4">預防感染，促進癒合</p>
+                    <ul class="text-left text-sm text-gray-600 space-y-2 flex-grow">
+                        <li>• **感染控制**: 嚴格遵守無菌原則，正確處理廢棄物。</li>
+                        <li>• **避免傷害**: 移除敷料時輕柔，避免拉扯皮膚。</li>
+                        <li>• **異常通報**: 發現嚴重感染或癒合停滯時，及時報告。</li>
+                        <li>• **手部衛生**: 換藥前後徹底洗手。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8-Minute Workflow Timeline -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-20 text-gray-800 scroll-reveal">8分鐘完美流程</h2>
+            <div class="relative timeline-container">
+                <div class="timeline-horizontal flex justify-between items-start max-w-6xl mx-auto">
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-blue-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">0-1m</div>
+                        <p class="text-sm font-medium">準備與溝通</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-cyan-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">1-2m</div>
+                        <p class="text-sm font-medium">移除舊敷料與評估</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">2-5m</div>
+                        <p class="text-sm font-medium">清潔與消毒</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-yellow-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">5-6m</div>
+                        <p class="text-sm font-medium">覆蓋新敷料</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-orange-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">6-7m</div>
+                        <p class="text-sm font-medium">衛教</p>
+                    </div>
+                    <div class="timeline-node relative z-10 lg:w-1/6 text-center">
+                        <div class="bg-red-500 text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xs mb-4 mx-auto">7-8m</div>
+                        <p class="text-sm font-medium">紀錄</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- OSCE Station Common Items -->
+    <section class="pt-10 pb-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">OSCE 考站常見備物</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg text-blue-600 mb-3 border-b-2 border-blue-200 pb-2">無菌換藥包</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>無菌手套</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>治療巾 (洞巾)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>鑷子 (至少兩支)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>棉球、紗布</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-green-600 mb-3 border-b-2 border-green-200 pb-2">清潔與覆蓋</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>生理食鹽水 (N/S)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>優碘 (Betadine)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>適當尺寸的敷料 (紗布、人工皮等)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>紙膠、廢棄物袋</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OSCE Clinical Skill Operation Process -->
+    <section class="pt-10 pb-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">OSCE臨床技能操作流程</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-lg scroll-reveal">
+                <ol class="space-y-6">
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div><div><h4 class="font-bold text-lg text-gray-800">準備與評估</h4><p class="text-gray-600">洗手，確認醫囑與病人身份。向病人解釋流程，確保隱私。戴上乾淨手套，輕柔移除舊敷料，觀察敷料上滲液的量、顏色、味道。丟棄舊敷料與手套，再次洗手。</p></div></li>
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div><div><h4 class="font-bold text-lg text-gray-800">建立無菌區與消毒</h4><p class="text-gray-600">打開無菌換藥包，戴上無菌手套。以一支鑷子夾取生理食鹽水棉球，由傷口中心向外環狀清潔。再以另一支鑷子夾取優碘棉球，同樣由內向外消毒，等待30秒乾燥。</p></div></li>
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div><div><h4 class="font-bold text-lg text-gray-800">覆蓋傷口</h4><p class="text-gray-600">若醫囑指示，可用生理食鹽水棉球將優碘拭去。以無菌鑷子夾取適當大小的無菌紗布，完全覆蓋傷口，並確保敷料邊緣超出傷口至少2公分。</p></div></li>
+                    <li class="flex items-start"><div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mr-4">4</div><div><h4 class="font-bold text-lg text-gray-800">完成與衛教</h4><p class="text-gray-600">以紙膠固定敷料。整理環境與廢棄物。脫手套，洗手。衛教病人保持傷口乾燥、觀察有無感染跡象，並完成紀錄(包含傷口評估結果)。</p></div></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Mistakes Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">常見扣分懶人包</h2>
+            <div class="flex overflow-x-auto space-x-6 pb-6 -mx-6 px-6">
+                <div class="min-w-[320px] bg-gradient-to-br from-red-400 to-red-600 rounded-2xl p-8 text-white hover-scale shadow-xl">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-4">清潔方向錯誤</h3><p class="mb-4 text-sm opacity-90">由外向內擦拭傷口</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4"><p class="text-sm font-medium">避免策略：</p><p class="text-xs mt-2">永遠記住「由最乾淨到最髒」的原則。傷口中心視為最乾淨，應由內向外清潔，避免將周圍皮膚的細菌帶入傷口。</p></div>
+                </div>
+                <div class="min-w-[320px] bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-8 text-white hover-scale shadow-xl">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-4">濕碰濕</h3><p class="mb-4 text-sm opacity-90">打開無菌包時手是濕的</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4"><p class="text-sm font-medium">避免策略：</p><p class="text-xs mt-2">洗手後務必將手徹底擦乾，才能碰觸無菌包外層。水分會穿透包布，造成汙染。</p></div>
+                </div>
+                <div class="min-w-[320px] bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl p-8 text-white hover-scale shadow-xl">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></div>
+                    <h3 class="text-xl font-bold mb-4">評估與紀錄遺漏</h3><p class="mb-4 text-sm opacity-90">只換藥，未評估或記錄</p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4"><p class="text-sm font-medium">避免策略：</p><p class="text-xs mt-2">換藥不只是換敷料。評估傷口變化是換藥的核心目的。詳細的紀錄更是醫療溝通與法律保護的關鍵。</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 30-Second Quiz Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 scroll-reveal">30秒快速測驗</h2>
+            <div id="quiz-container" class="space-y-8">
+                <!-- Question 1 -->
+                <div class="quiz-question bg-gray-50 rounded-2xl p-8 shadow-md">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">1. 清潔傷口的正確方向原則是？</h3>
+                    <div class="space-y-3">
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">A. 由外向內環狀擦拭</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="correct">B. 由傷口中心向外環狀擦拭</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">C. 由上到下直線擦拭</button>
+                    </div><div class="quiz-feedback mt-4 hidden"></div>
+                </div>
+                <!-- Question 2 -->
+                <div class="quiz-question bg-gray-50 rounded-2xl p-8 shadow-md">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">2. 下列何者「不是」評估傷口感染的典型徵象 (REEDA)？</h3>
+                    <div class="space-y-3">
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="correct">A. 傷口搔癢 (Itching)</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">B. 傷口邊緣發紅 (Redness)</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">C. 有膿樣滲出液 (Exudate)</button>
+                    </div><div class="quiz-feedback mt-4 hidden"></div>
+                </div>
+                <!-- Question 3 -->
+                <div class="quiz-question bg-gray-50 rounded-2xl p-8 shadow-md">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">3. 打開無菌換藥包後，下列哪項操作是錯誤的？</h3>
+                    <div class="space-y-3">
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">A. 保持雙手在腰部以上</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="correct">B. 身體可以短暫跨越無菌區拿取物品</button>
+                        <button class="quiz-option w-full text-left p-4 rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors" data-answer="wrong">C. 倒生理食鹽水時，瓶口不接觸無菌容器</button>
+                    </div><div class="quiz-feedback mt-4 hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="py-20 bg-gradient-to-br from-[#008CBA] to-[#00BFA6]">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white scroll-reveal">實用資源下載</h2>
+            <p class="text-xl text-white opacity-90 mb-12 scroll-reveal">帶走這些寶貝，OSCE不再害怕</p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <button class="bg-[#00557C] hover:bg-[#003d5c] text-white px-8 py-4 rounded-2xl font-bold text-lg hover-scale transition-all duration-300 shadow-lg">📋 Step Checklist (PDF)</button>
+                <button class="bg-[#00557C] hover:bg-[#003d5c] text-white px-8 py-4 rounded-2xl font-bold text-lg hover-scale transition-all duration-300 shadow-lg">📊 技術評量表 (DOPS, DOCX)</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-8">
+                <div class="w-48 h-16 mx-auto bg-white rounded-lg flex items-center justify-center mb-4">
+                    <span class="text-gray-800 font-bold">奇美醫院教學中心</span>
+                </div>
+            </div>
+            <p class="text-lg mb-4 text-blue-300 font-medium">「溫柔的手、清晰的腦、關懷的心」</p>
+            <div class="space-y-2 text-gray-300">
+                <p>聯絡信箱：teaching.center@chimei.org.tw</p>
+                <p>&copy; 2025 奇美醫院教學中心</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('revealed');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Quiz Functionality
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const question = this.closest('.quiz-question');
+                const options = question.querySelectorAll('.quiz-option');
+                const feedback = question.querySelector('.quiz-feedback');
+                options.forEach(opt => {
+                    opt.disabled = true;
+                    opt.classList.remove('hover:border-blue-400');
+                });
+                if (this.dataset.answer === 'correct') {
+                    this.classList.remove('border-gray-200');
+                    this.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                    feedback.innerHTML = '<p class="text-green-600 font-medium">🎉 答對了！這是確保安全的關鍵步驟！</p>';
+                } else {
+                    this.classList.remove('border-gray-200');
+                    this.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
+                    const correctOption = question.querySelector('[data-answer="correct"]');
+                    correctOption.classList.remove('border-gray-200');
+                    correctOption.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                    feedback.innerHTML = '<p class="text-red-600 font-medium">😅 答錯了！正確的觀念才能確保病人安全喔！</p>';
+                }
+                feedback.classList.remove('hidden');
+            });
+        });
+
+        // Download buttons functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('PDF') || button.textContent.includes('DOCX')) {
+                button.addEventListener('click', function() {
+                    alert('檔案下載功能為示範版本。實際使用時會連結到真實的下載連結。');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
