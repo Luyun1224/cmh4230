@@ -72,6 +72,7 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <a href="index.html" class="fixed top-4 left-4 text-blue-600 hover:text-blue-800 font-medium">返回首頁</a>
     <!-- Hero Section -->
     <section class="min-h-screen bg-gradient-to-br from-[#008CBA] to-[#00BFA6] flex items-center justify-center relative overflow-hidden p-4">
         <div class="container mx-auto px-6 text-center text-white relative z-10">
@@ -303,13 +304,14 @@
         <div class="container mx-auto px-6 text-center">
             <div class="mb-8">
                 <div class="w-48 h-16 mx-auto bg-white rounded-lg flex items-center justify-center mb-4">
-                    <span class="text-gray-800 font-bold">奇美醫院教學中心</span>
+                    <span class="text-gray-800 font-bold">奇美醫院教學部臨床技能中心</span>
                 </div>
             </div>
             <p class="text-lg mb-4 text-blue-300 font-medium">「溫柔的手、清晰的腦、關懷的心」</p>
             <div class="space-y-2 text-gray-300">
                 <p>聯絡信箱：teaching.center@chimei.org.tw</p>
-                <p>&copy; 2025 奇美醫院教學中心</p>
+            <p>瀏覽人次(累計)：<span id="view-count"></span></p>
+                <p>&copy; 2025 奇美醫院教學部臨床技能中心</p>
             </div>
         </div>
     </footer>
@@ -364,6 +366,10 @@
                 });
             }
         });
-    </script>
+    const viewKey = "view-count-" + location.pathname;
+    const viewNum = parseInt(localStorage.getItem(viewKey) || "0") + 1;
+    localStorage.setItem(viewKey, viewNum);
+    document.getElementById("view-count").textContent = viewNum;
+</script>
 </body>
 </html>
