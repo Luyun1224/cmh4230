@@ -386,6 +386,7 @@
             
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
                 <p>&copy; 2024 奇美醫院臨床技能中心. 版權所有.</p>
+                <p>瀏覽人次(累計)：<span id="view-count"></span></p>
             </div>
         </div>
     </footer>
@@ -476,6 +477,10 @@
                 behavior: 'smooth'
             });
         });
-    </script>
+    const viewKey = "view-count-" + location.pathname;
+    const viewNum = parseInt(localStorage.getItem(viewKey) || "0") + 1;
+    localStorage.setItem(viewKey, viewNum);
+    document.getElementById("view-count").textContent = viewNum;
+</script>
 </body>
 </html>
